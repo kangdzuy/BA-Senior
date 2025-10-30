@@ -1,0 +1,16 @@
+.assistant {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 75%;
+    background: none; /* Màu trong suốt */
+    text-align: left;
+}
+.user {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 75%;
+    background: none; /* Màu trong suốt */
+    text-align: right;
+    margin-left: auto;
+}
+.assistant::before { content: "🤖 "; font-weight: bold; }

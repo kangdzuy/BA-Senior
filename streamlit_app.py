@@ -36,30 +36,8 @@ INITIAL_ASSISTANT_MESSAGE = {"role": "assistant", "content": rfile("02.assistant
 if "messages" not in st.session_state:
     st.session_state.messages = [INITIAL_SYSTEM_MESSAGE, INITIAL_ASSISTANT_MESSAGE]
 
-# CSS để căn chỉnh trợ lý bên trái, người hỏi bên phải, và thêm icon trợ lý
-st.markdown(
-    """
-    <style>
-        .assistant {
-            padding: 10px;
-            border-radius: 10px;
-            max-width: 75%;
-            background: none; /* Màu trong suốt */
-            text-align: left;
-        }
-        .user {
-            padding: 10px;
-            border-radius: 10px;
-            max-width: 75%;
-            background: none; /* Màu trong suốt */
-            text-align: right;
-            margin-left: auto;
-        }
-        .assistant::before { content: "🤖 "; font-weight: bold; }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# Tải CSS từ file ngoài
+st.markdown(f"<style>{rfile('style.css')}</style>", unsafe_allow_html=True)
 
 # Hiển thị lịch sử tin nhắn (loại bỏ system để tránh hiển thị)
 for message in st.session_state.messages:
